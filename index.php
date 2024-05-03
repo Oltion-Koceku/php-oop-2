@@ -8,7 +8,7 @@
 
   $articoli = $articoliArrey;
 
-  var_dump($articoli);
+
 
 ?>
 
@@ -24,9 +24,13 @@
   <title>Shop Cani Gatti</title>
 </head>
 <body>
-  <ul>
+  <div class="contanier">
+
+    <h1>Articoli</h1>
+    <div class="d-flex">
     <?php foreach($articoli as $articolo): ?>
-      <div class="card" style="width: 18rem;">
+      <div class="card mx-3 " style="width: 18rem;">
+      <img class="card-img-top" src="<?php echo $articolo->img ?>" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><?php echo $articolo->name ?></h5>
           <h6 class="card-subtitle mb-2 text-muted"><?php echo $articolo->description ?></h6>
@@ -34,6 +38,7 @@
           <p class="card-text"><?php echo $item ?></p>
           <?php endforeach ?>
           <p class="card-text"><?php echo $articolo->getPrice() ?></p>
+          <!-- con method_exists, verifica se il metodo esiste e lo stampa -->
           <?php if (method_exists($articolo, 'getIngredient')): ?>
           <p class="card-text"><?php echo $articolo->getIngredient()  ?></p>
           <?php endif ?>  
@@ -44,6 +49,8 @@
       </div>
     <?php endforeach ?>
     
-  </ul>
+  </div>
+  </div>
+  
 </body>
 </html>
