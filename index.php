@@ -1,7 +1,19 @@
 <?php 
 
   require_once __DIR__ . '/Models/Categoria.php';
-  require_once __DIR__ . '/Models/Prodotti.php';
+  require_once __DIR__ . '/Models/Articoli.php';
+  require_once __DIR__ . '/Models/Cibo.php';
+  require_once __DIR__ . '/Models/Giochi.php';
+
+
+  $newCategory = new Categoria('Cani');
+  $newArticolo = new Cibo('Cibo per cani', 'Bla bla bla', 15.00, $newCategory, ['Ceneri grezze','Proteina grezza','Grassi grezzi','Fibra grezza']);
+
+  $newCategory2 = new Categoria('Gatti');
+  $newArticolo2 = new Giochi('Gioco per gatti', 'Bla bla bla', 25.00, $newCategory,'Struttura robusta con rivestimento in poliestere');
+
+  var_dump($newArticolo);
+  var_dump($newArticolo2);
 
 ?>
 
