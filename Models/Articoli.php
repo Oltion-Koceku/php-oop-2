@@ -26,7 +26,7 @@ class Articoli {
   // GEtter
 
   public function getPrice(){
-    return $this->price;
+    echo "&euro; $this->price";
   }
 
 }

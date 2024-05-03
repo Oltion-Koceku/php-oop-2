@@ -4,16 +4,11 @@
   require_once __DIR__ . '/Models/Articoli.php';
   require_once __DIR__ . '/Models/Cibo.php';
   require_once __DIR__ . '/Models/Giochi.php';
+  require_once __DIR__ . '/data/db.php';
 
+  $articoli = $articoliArrey;
 
-  $newCategory = new Categoria('Cani');
-  $newArticolo = new Cibo('Cibo per cani', 'Bla bla bla', 15.00, $newCategory, ['Ceneri grezze','Proteina grezza','Grassi grezzi','Fibra grezza']);
-
-  $newCategory2 = new Categoria('Gatti');
-  $newArticolo2 = new Giochi('Gioco per gatti', 'Bla bla bla', 25.00, $newCategory,'Struttura robusta con rivestimento in poliestere');
-
-  var_dump($newArticolo);
-  var_dump($newArticolo2);
+  var_dump($articoli);
 
 ?>
 
@@ -29,6 +24,26 @@
   <title>Shop Cani Gatti</title>
 </head>
 <body>
-  
+  <ul>
+    <?php foreach($articoli as $articolo): ?>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><?php echo $articolo->name ?></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><?php echo $articolo->description ?></h6>
+          <?php foreach($articolo->category as $item): ?>
+          <p class="card-text"><?php echo $item ?></p>
+          <?php endforeach ?>
+          <p class="card-text"><?php echo $articolo->getPrice() ?></p>
+          <?php if (method_exists($articolo, 'getIngredient')): ?>
+          <p class="card-text"><?php echo $articolo->getIngredient()  ?></p>
+          <?php endif ?>  
+          <?php if (method_exists($articolo, 'getMaterial')): ?>
+          <p class="card-text"><?php echo $articolo->getMaterial()  ?></p>
+          <?php endif ?>  
+        </div>
+      </div>
+    <?php endforeach ?>
+    
+  </ul>
 </body>
 </html>

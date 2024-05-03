@@ -10,4 +10,8 @@ class Giochi extends Articoli {
     parent::__construct( $_name, $_descrption, $_price, $_category);
 
   }
+
+  public function getMaterial(){
+    return $this->material;
+  }
 }
