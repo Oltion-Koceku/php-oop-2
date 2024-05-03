@@ -27,7 +27,7 @@
   <div class="contanier">
 
     <h1>Articoli</h1>
-    <div class="d-flex">
+    <div class="d-flex justify-content-center ">
     <?php foreach($articoli as $articolo): ?>
       <div class="card mx-3 " style="width: 18rem;">
       <img class="card-img-top" src="<?php echo $articolo->img ?>" alt="Card image cap">
