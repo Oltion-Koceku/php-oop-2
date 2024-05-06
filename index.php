@@ -9,7 +9,11 @@
 
   $articoli = $articoliArrey;
 
-  
+  try {
+    $articoliArrey = new Articoli('gr', 'bla bla bla', 5.99, new Categoria('Cane'), 'https://valerioguiggi.it/wp-content/uploads/2017/12/6409002109_89bde81b05_b-1024x675.jpg');
+  } catch (Exception $e) {
+    var_dump($e->getMessage());
+  }
 
 ?>
 
