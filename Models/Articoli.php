@@ -1,6 +1,10 @@
 <?php 
 require_once __DIR__ . '/Categoria.php';
+require_once __DIR__ . '/Avaible.php';
 class Articoli {
+  use Avaible;
+
+
 
   private $name;
   public $description;
