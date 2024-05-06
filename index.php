@@ -4,11 +4,12 @@
   require_once __DIR__ . '/Models/Articoli.php';
   require_once __DIR__ . '/Models/Cibo.php';
   require_once __DIR__ . '/Models/Giochi.php';
+  require_once __DIR__ . '/Models/Cuccia.php';
   require_once __DIR__ . '/data/db.php';
 
   $articoli = $articoliArrey;
 
-
+  
 
 ?>
 
@@ -32,7 +33,7 @@
       <div class="card mx-3 " style="width: 18rem;">
       <img class="card-img-top" src="<?php echo $articolo->img ?>" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title"><?php echo $articolo->name ?></h5>
+          <h5 class="card-title"><?php echo $articolo->getName() ?></h5>
           <h6 class="card-subtitle mb-2 text-muted"><?php echo $articolo->description ?></h6>
           <?php foreach($articolo->category as $item): ?>
           <p class="card-text"><?php echo $item ?></p>
